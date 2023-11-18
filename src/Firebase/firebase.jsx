@@ -15,4 +15,4 @@ const firebaseConfig = {
 // gets the firestore database
 const db = firebaseApp.firestore();
 
-export { db }
+export { db };
