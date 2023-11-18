@@ -44,5 +44,23 @@
     align-items: center;
 }
 .sidebar__recent{
-    margin:0px 0px 10px 0px;
+    background-color:#fff;
+    padding:10px;
+    margin:10px 0px;
+    border-radius: 10px;
+    position: sticky;
+    top:60px;
+}
+.sidebar__recent p{
+    margin: 0px 0px 10px 0px;
+    font-size:13px;
+    display:flex;
+    align-items:center;
+    color: #000;
+}
+.has span{
+    font-weight:bolder;
+    font-size: 18px;
+    margin-right: 5px;
+    color: #000;
 }

@@ -32,6 +32,7 @@ function Sidebar() {
           <p className='has'><span>#</span> reactjs</p>
           <p className='has'><span>#</span> reduxtoolkit</p>
         </div>
+        
     </div>
   )
 }
