@@ -1,15 +1,13 @@
 import React from 'react';
-import "../css/Feed.css";
+import "./Feed.css";
 import { Avatar } from '@mui/material';
 import InsertPhotoIcon from '@mui/icons-material/InsertPhoto';
 import OndemandVideoIcon from '@mui/icons-material/OndemandVideo';
 import TodayIcon from '@mui/icons-material/Today';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import Post from './Post';
+import API from '../api/API';
 // .................................
-import { initializeApp } from "firebase/app";
-
-
 
 function Feed() {
   return (
@@ -17,7 +15,6 @@ function Feed() {
       <div className='feed__input'>
          <div className='feed__form'> 
             <Avatar src='https://www.hindustantimes.com/static-content/1y/cricket-logos/players/virat-kohli.png' />
-            
             <form>
                <input type="text" placeholder='Start a post'/>
                <input type="submit" />
@@ -47,6 +44,7 @@ function Feed() {
       </div>
       
       <Post name="Virat Kohli" description="I'm Indian international cricketer " message="Virat Kohli, an Indian cricketer, is renowned for his aggressive batting style and has captained the Indian cricket team across formats." photoURL="https://www.hindustantimes.com/static-content/1y/cricket-logos/players/virat-kohli.png"/>
+      <API />
 
 
       {/* <Post name="Sachin Tendulkar" description="I'm Indian international cricketer " 

@@ -1,6 +1,7 @@
 // this is a rite side bar
 import React from 'react'
-import '../css/Widget.css';
+// import '../css/Widget.css';
+import './Widget.css';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 function Widget() {
   return (

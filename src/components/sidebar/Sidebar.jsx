@@ -1,7 +1,9 @@
 // Abhishek bhaiya
 import React from 'react';
-import '../css/Sidebar.css';
+// import '../css/Sidebar.css';
+import './Sidebar.css';
 import { Avatar } from '@mui/material';
+
 function Sidebar() {
   return (
     <div className='sidebar'>
