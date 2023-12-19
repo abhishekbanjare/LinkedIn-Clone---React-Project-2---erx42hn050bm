@@ -6,10 +6,37 @@ import OndemandVideoIcon from '@mui/icons-material/OndemandVideo';
 import TodayIcon from '@mui/icons-material/Today';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import Post from './Post';
-import API from '../api/API';
+import { useState } from 'react';
+import { useEffect } from 'react';
 // .................................
 
 function Feed() {
+   
+      const [apiData, setApiData] = useState([]);
+    
+      let ApiUrl = "https://academics.newtonschool.co/api/v1/linkedin/post";
+    
+      const fetchApiData = async (url) => {
+        try {
+          const res = await fetch(url, {
+            headers: new Headers({
+              projectId: 'erx42hn050bm',
+            }),
+          });
+          const data = await res.json();
+          const oneData = data.data;
+    
+          // Store the data in the state variable
+          setApiData(oneData);
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      useEffect(() => {
+        fetchApiData(ApiUrl);
+      }, []);
+    
+
   return (
     <div className='feed'>
       <div className='feed__input'>
@@ -42,33 +69,10 @@ function Feed() {
              </div>
          </div>
       </div>
-      
-      <Post name="Virat Kohli" description="I'm Indian international cricketer " message="Virat Kohli, an Indian cricketer, is renowned for his aggressive batting style and has captained the Indian cricket team across formats." photoURL="https://www.hindustantimes.com/static-content/1y/cricket-logos/players/virat-kohli.png"/>
-      <API />
-
-
-      {/* <Post name="Sachin Tendulkar" description="I'm Indian international cricketer " 
-      message="Sachin Tendulkar, often hailed as the God of Cricket, is a retired Indian batting maestro and the highest run-scorer in international cricket."
-      photoURL="https://i.cdn.newsbytesapp.com/sports/players/profile/sachin-tendulkar-1.jpg"/>
-
-      <Post name="Cristiano Ronaldo" 
-      description="I'm international Football palayer" 
-      message="Cristiano Ronaldo, born on February 5, 1985, in Portugal, is a legendary footballer 
-        known for his goal-scoring prowess and versatility" 
- photoURL="https://www.juventus.com/images/image/private/t_portrait_mobile/dev/t5mex3dyn30xi3ox6ii5.jpg"/>
-
-      <Post name="Mahendra Singh Dhoni" 
-      description="I'm Indian international cricketer " 
-      message="Mahendra Singh Dhoni, a former Indian cricket captain, is celebrated for his exceptional leadership, finishing skills, and the captaincy during India's triumphs in major cricket tournaments." 
-      photoURL="https://www.punekarnews.in/wp-content/uploads/2020/07/MS-Dhoni.jpg"/> */}
-
-  {/* <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post /> */}
-
-    </div>
+       {apiData.length > 0 && <Post data={apiData} />}
+   </div>
+    
+    
   )
 }
 

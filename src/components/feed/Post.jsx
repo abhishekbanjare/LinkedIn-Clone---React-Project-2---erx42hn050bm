@@ -6,18 +6,25 @@ import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import CommentIcon from '@mui/icons-material/Comment';
 import ShareIcon from '@mui/icons-material/Share';
 import SendIcon from '@mui/icons-material/Send';
+import Comments from '../api/Comments';
 
-function Post({name, description, message, photoURL}) {
+const Post = ({data}) => {
   return (
-    <div className='posts'>
+<div>
+     {/* ................. */}
+     {/* <h1>Hello Ji to kaise ho aap log</h1> */}
+     <Comments />
+
+         {/* ................. */}
+
+    {data.map((item) => (
+    <div key={item.id} className='posts'>
         <div className='post__header'>
             <div className='post__headerLeft'>
-                <Avatar src={photoURL}/>
+                <Avatar src={item.author.profileImage}/>
                 <div className='post_profile_details'>
-                    {/* <h3>Abhishek Banjare</h3> */}
-                    <h3>{name}</h3>
-                    {/* <p>React Developer</p> */}
-                    <p>{description}</p>
+                    <h3>{item.author.name}</h3>
+                    <p>{item.title}</p>
                 </div>
             </div>
 
@@ -26,26 +33,25 @@ function Post({name, description, message, photoURL}) {
             <MoreVertIcon />
         </div>
 
+
         <div className='post__body'>
-            {/* <p>
-                Hi linkedin family, 
-               <br/>
-               <br/>
-               I want to wish you all a very Happy happiest Diwali 🪔🪔🪔<br/>
-               I want to wish you all a very Happy happiest Diwali 🪔🪔🪔
-            </p> */}
-            <p>{message}</p>
-            
+            <p>{item.content}</p> 
         </div>
 
         <div className='post__footer'>
             <div className='post__footer_option'>
                 <ThumbUpIcon />
                 <span>Like</span>
+                <div className='countLike'> 
+                  <span >{item.likeCount}</span>
+                </div>
             </div>
             <div className='post__footer_option'>
                 <CommentIcon />
                 <span>Comment</span>
+                <div className='countLike'> 
+                  <span >{item.commentCount}</span>
+                </div>
             </div>
             <div className='post__footer_option'>
                 <ShareIcon />
@@ -57,9 +63,10 @@ function Post({name, description, message, photoURL}) {
             </div>
         </div>
 
-
     </div>
-  )
-}
+    ))} 
+</div>
+  );
+};
 
 export default Post
