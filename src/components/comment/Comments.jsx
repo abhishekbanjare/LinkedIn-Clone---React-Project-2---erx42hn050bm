@@ -2,10 +2,16 @@ import React from 'react'
 import { useState } from 'react';
 import { useEffect } from 'react';
 
-function Comments(){
-    const [apiData, setApiData] = useState([]);
-    
-      let ApiUrl = "https://academics.newtonschool.co/api/v1/linkedin/post/:postId/comments?postId:64e354f367bbc0a8a19f27aa";
+function Comments(props){
+  const [apiData, setApiData] = useState([]);
+
+      // const Id = props.parameter;
+      // let ApiUrl = "https://academics.newtonschool.co/api/v1/linkedin/post/";
+      // let extraParam = "/comments";
+      // let myUrl = ApiUrl + Id + extraParam;
+
+      let myUrl = `https://academics.newtonschool.co/api/v1/linkedin/post/${props.parameter}/comments`;
+
     
       const fetchApiData = async (url) => {
         try {
@@ -14,9 +20,9 @@ function Comments(){
               projectId: 'erx42hn050bm',
             }),
           });
-          const data = await res.json();
-          console.log(data);
-          const oneData = data.data;
+          const commentData = await res.json();
+          // console.log(data);
+          const oneData = commentData.data;
     
           // Store the data in the state variable
           setApiData(oneData);
@@ -25,11 +31,24 @@ function Comments(){
         }
       };
       useEffect(() => {
-        fetchApiData(ApiUrl);
+        fetchApiData(myUrl);
       }, []);
 
   return (
-    <div>Comments comments..........</div>
+    <>
+    <center>
+        {apiData.map((dataObj, index) => {
+          return (
+            <div key={index}>
+              <p>{dataObj.content}</p>
+            </div>
+          );
+        })}
+      </center>
+
+
+    </>
+
   )
 }
 
