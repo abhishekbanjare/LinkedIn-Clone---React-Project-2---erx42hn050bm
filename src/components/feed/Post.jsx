@@ -12,8 +12,18 @@ import { useState } from 'react';
 
 const Post = ({ data }) => {
 
-  const [isCommentOpen, setIsCommentOpen] = useState(false);
-  const [commentPostId, setCommentPostId] = useState("");
+//   const [isCommentOpen, setIsCommentOpen] = useState(false);
+//   const [commentPostId, setCommentPostId] = useState("");
+// ............................
+const [commentStates, setCommentStates] = useState({});
+
+  const toggleComment = (postId) => {
+    setCommentStates((prevStates) => ({
+      ...prevStates,
+      [postId]: !prevStates[postId],
+    }));
+  };
+// .................................
 
   return (
     <div>
@@ -37,32 +47,32 @@ const Post = ({ data }) => {
           <div className="post__body">
             <p>{item.content}</p>
           </div>
+           {/* ...... */}
+           <div className="countLikeComment">
+                <span>{item.likeCount}&nbsp;Like</span>  
+                <span>{item.commentCount}&nbsp;Comments</span>
+            </div>
+
+            {/* ...... */}
+
 
           <div className="post__footer">
             <div className="post__footer_option">
               <ThumbUpIcon />
               <span>Like</span>
-              <div className="countLike">
+              {/* <div className="countLike">
                 <span>{item.likeCount}</span>                
-              </div>
+              </div> */}
             </div>
             <div
               className="post__footer_option"
-              onClick={()=>{
-                setIsCommentOpen(!isCommentOpen) 
-                setCommentPostId(item._id)
-            
-        }}
+              onClick={() => toggleComment(item._id)}
             >
               <CommentIcon />
-              <span>Comment &nbsp;</span>
-              <span>{item.commentCount}</span>
-
-              {/* <div className='countLike'> 
-                  <span >{item.commentCount}</span>
-                  <Comments parameter={item._id}/>
-                </div> */}
+              <span>Comment</span>
+              {/* <span>{item.commentCount}</span> */}
             </div>
+
             <div className="post__footer_option">
               <ShareIcon />
               <span>Share</span>
@@ -71,18 +81,21 @@ const Post = ({ data }) => {
               <SendIcon />
               <span>Send</span>
             </div>
+            
           </div>
+          {commentStates[item._id] && (
+                <div className="commentShow">
+                    <Comments parameter={item._id} />
+                </div>
+
+            )}
+          
+
         
         </div>
       ))}
-        {isCommentOpen && (
-            <div className="countLike" style={{position:"absolute",top:"35vh",display:"block",backgroundColor:"yellow"}}>
-              {/* <span >{item.commentCount}</span> */}
-              {/* <Comments parameter={item._id} /> */}
-              <Comments parameter={commentPostId} />
-            </div>
-          )}
     </div>
+
   );
 };
 

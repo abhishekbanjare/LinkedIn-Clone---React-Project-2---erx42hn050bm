@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import { useEffect } from 'react';
+import "./Comments.css";
 
 function Comments(props){
   const [apiData, setApiData] = useState([]);
@@ -39,7 +40,10 @@ function Comments(props){
     <center>
         {apiData.map((dataObj, index) => {
           return (
-            <div key={index}>
+            // <div key={index} style={{backgroundColor:"yellow"}}>
+            <div key={index} className='commentPrint'>
+              <h4>Abhishek</h4>
+              <h4>Abhishek</h4>
               <p>{dataObj.content}</p>
             </div>
           );
