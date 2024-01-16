@@ -86,6 +86,7 @@ const [commentStates, setCommentStates] = useState({});
           {commentStates[item._id] && (
                 <div className="commentShow">
                     <Comments parameter={item._id} />
+                    {/* console.log(item.) */}
                 </div>
 
             )}
