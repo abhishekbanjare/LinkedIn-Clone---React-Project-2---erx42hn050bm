@@ -11,6 +11,7 @@ import { useState } from 'react';
 
 
 const Post = ({ data }) => {
+  // {console.log("Hello ji: "+data)}
 
 //   const [isCommentOpen, setIsCommentOpen] = useState(false);
 //   const [commentPostId, setCommentPostId] = useState("");

@@ -1,48 +1,18 @@
 import './App.css';
-import Header from "./components/header/Header";
-import Sidebar from './components/sidebar/Sidebar';
-import Feed from './components/feed/Feed';
-import Widget from './components/widget/Widget';
-import Login from './components/login/Login';
+import Home from './components/home/Home';
 
 
 // const user = null;
-const user = "abc";
+// const user = "abc";
 function App() {
-  // const [count, setCount] = useState(0)
-
-  // const user = null;
-  // const user = "abc";
-
-  
+// console.log(result.data.email);
   return (
     <>
-      <>
-        {
-          !user ? (<Login />) : (
-            <div className='app_wrapper'>
-            <Header />
-            <div className="app_body">
-             <Sidebar />
-             <Feed />
-             <Widget />
-            </div>
-          </div>
-
-          )
-        }
-        {/* .......................................................... */}
-        {/* <div className='app_wrapper'>
-          <Header />
-          <div className="app_body">
-           <Sidebar />
-           <Feed />
-           <Widget />
-          </div>
-        </div> */}
-        {/* .......................................................... */}
-
-      </>
+     {/* { <h3>result.data.email</h3>} */}
+      {/* {
+        !user ? (<Login />):(<Home />)
+      } */}
+      <Home />
     </>
   )
 }

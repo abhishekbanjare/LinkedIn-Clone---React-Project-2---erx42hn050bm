@@ -1,101 +1,74 @@
 import React from 'react';
 import "./Login.css"
 import { useState } from 'react';
+import Signup from './Signup';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-function Login(){
-    const [signup, setSignUp] = useState(false);
-    // const [login, setLogIn] = useState(false);
 
-    const [name, setName] = useState("");
-    const [photoURL, setPhotoURL] = useState("");
+
+
+
+function Login({ onLogin }){
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    // for not refressing page
-    const register = (e)=>{
-        e.preventDefault();   //default event e  
+    const [signUp, setSignUp] = useState(true);  //signup ho chuka hai to hame login page open karna hai
 
-        if(!name){
-            return alert("Name is required");
-        }
-        if(!photoURL){
-            return alert("PhotoUrl is required");
-        }
-        if(!email){
-            return alert("Email is required");
-        }
-        if(!password){
-            return alert("Password is required");
-        }
+    
 
-        setName("");
-        setPhotoURL("");
-        setEmail("");
-        setPassword("");
-
-    }
-    // async const loginfun = (e)=>{
-    async function loginfun(){
-        e.preventDefault();   //default event e  
-        if(!email){
-            return alert("Email is required");
-        }
-        if(!password){
-            return alert("Password is required");
-        }
-        // setEmail("");
-        // setPassword("");
-        console.log(email, password);
-        let item={email, password};
-        let result = await fetch("https://academics.newtonschool.co/api/v1/user/login",{
-            method:'POST',
-            headers:{
-                "Content-Type":"application/json",
-                "Accept":'application/json'
-            },
-            body:JSON.stringify(item)
+    const logInFun = async (e) => {
+        e.preventDefault();
+        let loginapidata = {   
+                        "email": email,
+                        "password": password,
+                        "appType": "linkedin"
+                        };
+        const response = await fetch('https://academics.newtonschool.co/api/v1/user/login', {
+          method: 'POST',
+          body: JSON.stringify(loginapidata),
+          headers: {
+            'projectId':'erx42hn050bm',
+            'Content-Type': 'application/json'
+          }
         });
-        result = await result.json();
+        const result = await response.json();
+        if(result.status === "success"){
+          // alert("You are successfully Login");
+          toast.success('Login successful!');
+        }
+        else{
+          alert("Chek Your Email or Password");
+        }
         console.log(result);
-        localStorage.setItem("user-info",JSON.stringify(result));
-        // history.push("/add")
+        console.log(result.status);
+       
+        onLogin(result);
     }
-    // ............................
-    // .............................
-      
 
     return(
-          <div className='loginScreen'>
-            <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/LinkedIn_Logo.svg/2560px-LinkedIn_Logo.svg.png'/>
-        {
-            signup===true ? (
-                <form onSubmit={register}>
-                <input type='text' placeholder='Full Name' value={name} onChange={e=>setName(e.target.value)}/>
-                <input type='text' placeholder='Profile Picture URL' value={photoURL} onChange={e=>setPhotoURL(e.target.value)}/>
-                <input type='email' placeholder='Email' value={email} onChange={e=>setEmail(e.target.value)}/>
-                <input type='password' placeholder='Password' value={password} onChange={e=>setPassword(e.target.value)}/>
+      <div className='loginScreen'>     
+      {
+          signUp===false ? (
+                <Signup /> 
+          )
+          :
+          ( 
+            <div>
+              <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/LinkedIn_Logo.svg/2560px-LinkedIn_Logo.svg.png'/>
+                <form onSubmit={logInFun}>
+                   <input type='email' placeholder='Email' value={email} onChange={e=>setEmail(e.target.value)}/>
+                   <input type='password' placeholder='Password' value={password} onChange={e=>setPassword(e.target.value)}/>
 
-                <input type='submit' value="Sign Up" />
-                <h4>Already a member ? <span onClick={e=>setSignUp(false)}>Login Here</span></h4>
-            </form>
-            )
-            :
-            (
-                <form onSubmit={loginfun}>
-                
-                <input type='email' placeholder='Email' value={email} onChange={e=>setEmail(e.target.value)}/>
-                <input type='password' placeholder='Password' value={password} onChange={e=>setPassword(e.target.value)}/>
-
-                <input type='submit' value="Sign In" />
-                <h4>Not a member ? <span onClick={e=>setSignUp(true)}>Register Here</span></h4>
-            </form>
-            )
-
-            
-        } 
-          </div>
+                   <input type='submit' value="Sign In" />
+                   <h4>Not a member ? <span onClick={e=>setSignUp(false)}>Register Here</span></h4>
+               </form>
+            </div>
+          )    
+      } 
+      </div>
     )
 }
-export default Login
+export default Login;
 
 
