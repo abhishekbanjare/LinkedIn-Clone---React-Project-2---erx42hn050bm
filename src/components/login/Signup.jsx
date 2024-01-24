@@ -49,12 +49,12 @@ function Signup() {
             }
         });
         const result = await response.json();
-        if(result.status === "success"){
-            alert("You are successfully Registered");
-        }
-        else{
-            alert("Invalid input data || User already exists");
-        }
+        // if(result.status === "success"){
+        //     alert("You are successfully Registered");
+        // }
+        // else{
+        //     alert("Invalid input data || User already exists");
+        // }
         // console.log(result);
         // console.log(result.status);
 

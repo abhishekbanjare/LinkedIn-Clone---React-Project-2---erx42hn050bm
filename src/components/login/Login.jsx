@@ -2,20 +2,12 @@ import React from 'react';
 import "./Login.css"
 import { useState } from 'react';
 import Signup from './Signup';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
-
-
-
 
 function Login({ onLogin }){
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
     const [signUp, setSignUp] = useState(true);  //signup ho chuka hai to hame login page open karna hai
-
-    
 
     const logInFun = async (e) => {
         e.preventDefault();
@@ -33,15 +25,14 @@ function Login({ onLogin }){
           }
         });
         const result = await response.json();
-        if(result.status === "success"){
-          // alert("You are successfully Login");
-          toast.success('Login successful!');
-        }
-        else{
-          alert("Chek Your Email or Password");
-        }
-        console.log(result);
-        console.log(result.status);
+        // if(result.status === "success"){
+        //   alert("You are successfully Login");
+        // }
+        // else{
+        //   alert("Chek Your Email or Password");
+        // }
+        // console.log(result);
+        // console.log(result.status);
        
         onLogin(result);
     }
