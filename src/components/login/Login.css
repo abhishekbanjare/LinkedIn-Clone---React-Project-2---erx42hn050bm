@@ -2,6 +2,13 @@
     width: 400px;
     margin:100px auto;
     text-align: center;
+    background-color: #fff;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    border-radius: 0px 10px 0px 10px;
+}
+.innerdiv{
+    margin:20px;
+    padding: 15px;
 }
 .loginScreen img{
     width:200px;
@@ -13,7 +20,7 @@
     width:100%;
     margin-bottom: 10px;
     padding: 0px 10px;
-    border:2px solid #000;
+    border:1px solid #000;
     border-radius: 5px;
     box-sizing: border-box;
 }
@@ -25,7 +32,16 @@
     letter-spacing: 2px;
     cursor:pointer;
 }
+.loginScreen h4{
+    margin-top:7px;
+    /* padding:0px; */
+}
 .loginScreen h4 span{
     color:#0077b5;
     cursor:pointer;
+}
+
+#error-message{
+    color:red;
+    margin:0px;
 }

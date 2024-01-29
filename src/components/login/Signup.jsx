@@ -49,21 +49,23 @@ function Signup() {
             }
         });
         const result = await response.json();
-        // if(result.status === "success"){
-        //     alert("You are successfully Registered");
-        // }
-        // else{
-        //     alert("Invalid input data || User already exists");
-        // }
+        if(result.status === "success"){
+            console.log("You are successfully Registered");
+            alert("You are successfully Registered");
+        }
+        else{
+            alert("Invalid input data || User already exists");
+        }
         // console.log(result);
         // console.log(result.status);
 
     }
+
   return (
     <div className='loginScreen'>
     {
         logIn === false ? (
-        <div>
+        <div className='innerdiv'>
           <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/LinkedIn_Logo.svg/2560px-LinkedIn_Logo.svg.png'/>
           <form onSubmit={registerFun}>
 
@@ -84,5 +86,4 @@ function Signup() {
      </div>
   )
 }
-
 export default Signup

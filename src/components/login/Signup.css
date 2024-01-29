@@ -2,6 +2,12 @@
     width: 400px;
     margin:100px auto;
     text-align: center;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+}
+.innerdiv{
+    margin:20px;
+    padding: 15px;
 }
 .loginScreen img{
     width:200px;
@@ -25,7 +31,16 @@
     letter-spacing: 2px;
     cursor:pointer;
 }
+.loginScreen h4{
+    margin-top:7px;
+    /* padding:0px; */
+}
 .loginScreen h4 span{
     color:#0077b5;
     cursor:pointer;
 }
+
+/* #error-message{
+    color:red;
+    margin:0px;
+} */

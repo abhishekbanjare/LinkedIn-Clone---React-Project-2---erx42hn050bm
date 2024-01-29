@@ -13,10 +13,9 @@ const Home = ()=> {
      const [user, setUser] = useState(null);
 
   const handleLogin = (loginData) => {
-      console.log("Befor: ......."+loginData);
       if(loginData.status === "success"){
          setUser(loginData);
-      console.log("After: ........"+loginData);
+         console.log("abhishek....");
       }
 
   };

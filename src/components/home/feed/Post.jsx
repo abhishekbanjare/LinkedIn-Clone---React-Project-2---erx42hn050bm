@@ -9,7 +9,10 @@ import SendIcon from "@mui/icons-material/Send";
 import Comments from "../comment/Comments";
 import { useState } from 'react';
 
-
+const pStyle = {
+  fontSize: '16px',
+  color: 'blue'
+}
 const Post = ({ data }) => {
   // {console.log("Hello ji: "+data)}
 
@@ -18,12 +21,23 @@ const Post = ({ data }) => {
 // ............................
 const [commentStates, setCommentStates] = useState({});
 
-  const toggleComment = (postId) => {
-    setCommentStates((prevStates) => ({
-      ...prevStates,
-      [postId]: !prevStates[postId],
-    }));
-  };
+const toggleComment = (postId) => {
+  setCommentStates((prevStates) => ({
+    ...prevStates,
+    [postId]: !prevStates[postId],
+  }));
+};
+// .................................................................
+const [isLiked, setIsLiked] = useState(false);
+
+const handleLikeClick = () =>{
+  setIsLiked(!isLiked);
+    
+}
+// .................................................................
+
+
+  
 // .................................
 
   return (
@@ -58,13 +72,14 @@ const [commentStates, setCommentStates] = useState({});
 
 
           <div className="post__footer">
-            <div className="post__footer_option">
+            <div className="post__footer_option" onClick={handleLikeClick} style={{ color: isLiked ? "blue" : "black" }}>
               <ThumbUpIcon />
               <span>Like</span>
               {/* <div className="countLike">
                 <span>{item.likeCount}</span>                
               </div> */}
             </div>
+
             <div
               className="post__footer_option"
               onClick={() => toggleComment(item._id)}
