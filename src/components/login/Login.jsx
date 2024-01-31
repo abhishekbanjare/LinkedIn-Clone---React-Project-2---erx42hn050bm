@@ -3,7 +3,7 @@ import "./Login.css"
 import { useState } from 'react';
 import Signup from './Signup';
 
-function Login({ onLogin}){
+function Login({user, setUser}){
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [signUp, setSignUp] = useState(true);  //signup ho chuka hai to hame login page open karna hai
@@ -25,7 +25,8 @@ function Login({ onLogin}){
         });
         const result = await response.json();
         if(result.status === "success"){
-          alert("You are successfully Login");
+          // alert("You are successfully Login");
+          setUser(true);
         }
         else{
           var errorMessage = document.getElementById("error-message");
@@ -35,14 +36,15 @@ function Login({ onLogin}){
         // console.log(result);
         // console.log(result.status);
        
-        onLogin(result);
+        // onLogin(result);
+        // setUser(true);
     }
 
     return(
       <div className='loginScreen'>     
       {
           signUp===false ? (
-                <Signup /> 
+                <Signup user={user} setUser={setUser}/> 
           )
           :
           ( 

@@ -11,7 +11,7 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import Avatar from '@mui/material/Avatar';
 
 
-function Header() {
+function Header({setUser}) {
   return (
     <div className="header">
         <div className='header__left'>
@@ -25,12 +25,12 @@ function Header() {
 
         </div>
         <div className='header__right'>
-             <Headeroptions Icon={HomeIcon} title="Home" />
-             <Headeroptions Icon={PeopleIcon} title="My Network" />
-             <Headeroptions Icon={BusinessCenterIcon} title="Jobs" />
-             <Headeroptions Icon={MessageIcon} title="Messaging" />
-             <Headeroptions Icon={NotificationsIcon} title="Notification" />
-             <Headeroptions avatar={Avatar} title="Abhishek Banjare" />
+             <Headeroptions Icon={HomeIcon} title="Home" setUser={setUser}/>
+             <Headeroptions Icon={PeopleIcon} title="My Network" setUser={setUser}/>
+             <Headeroptions Icon={BusinessCenterIcon} title="Jobs" setUser={setUser}/>
+             <Headeroptions Icon={MessageIcon} title="Messaging" setUser={setUser}/>
+             <Headeroptions Icon={NotificationsIcon} title="Notification" setUser={setUser}/>
+             <Headeroptions avatar={Avatar} title="Abhishek Banjare" isProfileOption={true} setUser={setUser}/>
         </div>
     </div>
   )

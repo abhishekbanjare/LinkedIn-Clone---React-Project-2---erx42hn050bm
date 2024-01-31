@@ -3,7 +3,7 @@ import "./Login.css";
 import Login from './Login';
 import { useState } from 'react';
 
-function Signup() {
+function Signup({user, setUser}) {
     const [name, setName] = useState("");
     const [photoURL, setPhotoURL] = useState("");
     const [email, setEmail] = useState("");
@@ -50,11 +50,14 @@ function Signup() {
         });
         const result = await response.json();
         if(result.status === "success"){
-            console.log("You are successfully Registered");
+            setUser(true);
+            // console.log("You are successfully Registered");
             alert("You are successfully Registered");
         }
         else{
-            alert("Invalid input data || User already exists");
+            // alert("Invalid input data || User already exists");
+            var errorMessage = document.getElementById("error-message");
+            errorMessage.innerHTML = "User already exists";
         }
         // console.log(result);
         // console.log(result.status);
@@ -75,12 +78,13 @@ function Signup() {
              <input type='password' placeholder='Password' value={password} onChange={e=>setPassword(e.target.value)}/>
 
              <input type='submit' value="Sign Up" />
+             <p id='error-message'></p>
              <h4>Already a member ? <span onClick={e=>setLogIn(true)}>Login Here</span></h4>
           </form>
         </div>
        
         ):(
-            <Login />
+            <Login user={user} setUser={setUser}/>
         )
     }
      </div>

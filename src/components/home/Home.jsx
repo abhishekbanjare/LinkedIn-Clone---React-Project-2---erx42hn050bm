@@ -7,27 +7,17 @@ import Login from '../login/Login';
 import { useState } from 'react';
 
 
-
-
 const Home = ()=> {
-     const [user, setUser] = useState(null);
-
-  const handleLogin = (loginData) => {
-      if(loginData.status === "success"){
-         setUser(loginData);
-         console.log("abhishek....");
-      }
-
-  };
+     const [user, setUser] = useState(false);
 
   return (
       <div>
         {
-        !user ? (<Login onLogin={handleLogin}/>)
+        !user ? (<Login user={user} setUser={setUser}/>)
         :
         (
         <div className='app_wrapper'>
-          <Header />
+          <Header setUser={setUser}/>
           <div className="app_body">
               <Sidebar />
               <Feed />

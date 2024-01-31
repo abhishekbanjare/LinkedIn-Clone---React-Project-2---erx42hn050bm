@@ -39,6 +39,9 @@
     color:#0077b5;
     cursor:pointer;
 }
+.loginScreen .innerdiv p{
+    color:red;
+}
 
 /* #error-message{
     color:red;

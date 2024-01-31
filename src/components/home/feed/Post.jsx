@@ -28,10 +28,10 @@ const toggleComment = (postId) => {
   }));
 };
 // .................................................................
-const [isLiked, setIsLiked] = useState(false);
+const [isLike, setIsLiked] = useState(false);
 
 const handleLikeClick = () =>{
-  setIsLiked(!isLiked);
+  setIsLiked(!isLike);
     
 }
 // .................................................................
@@ -72,7 +72,7 @@ const handleLikeClick = () =>{
 
 
           <div className="post__footer">
-            <div className="post__footer_option" onClick={handleLikeClick} style={{ color: isLiked ? "blue" : "black" }}>
+            <div className="post__footer_option">
               <ThumbUpIcon />
               <span>Like</span>
               {/* <div className="countLike">
