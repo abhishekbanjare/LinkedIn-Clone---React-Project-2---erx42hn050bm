@@ -5,7 +5,8 @@ import './Sidebar.css';
 import { Avatar } from '@mui/material';
 import { useState } from 'react';
 import Userpost from "../userpost/Userpost";
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+// import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 
 function Sidebar({user}) {
 

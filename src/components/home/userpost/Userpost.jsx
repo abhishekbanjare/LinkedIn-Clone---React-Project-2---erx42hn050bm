@@ -1,5 +1,5 @@
 import React from 'react'
-import "./UserPost.css";
+// import "./UserPost.css";
 
 
 const Userpost = () => {
