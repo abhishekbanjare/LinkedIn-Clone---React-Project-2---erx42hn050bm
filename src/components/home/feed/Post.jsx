@@ -20,6 +20,8 @@ const Post = ({ data }) => {
 //   const [commentPostId, setCommentPostId] = useState("");
 // ............................
 const [commentStates, setCommentStates] = useState({});
+const [likedPosts, setLikedPosts] = useState({});
+const [stateLikeCounts, setLikeCounts] = useState({});
 
 const toggleComment = (postId) => {
   setCommentStates((prevStates) => ({
@@ -28,15 +30,21 @@ const toggleComment = (postId) => {
   }));
 };
 // .................................................................
-const [isLike, setIsLiked] = useState(false);
 
-const handleLikeClick = () =>{
-  setIsLiked(!isLike);
-    
+const handleLikeClick = (postId) =>{
+  setLikedPosts((prevLikedPost)=> ({
+     ...prevLikedPost,
+     [postId]: !prevLikedPost[postId],
+  }));
+
+  // setLikeCounts((prevLikeCounts)=>({
+  //    ...prevLikeCounts,
+  //    [postId]: (prevLikeCounts[postId] || 0) + 1,
+  // }));
 }
 // .................................................................
 
-
+// console.log(stateLikeCounts[postId].commentCount);
   
 // .................................
 
@@ -72,7 +80,7 @@ const handleLikeClick = () =>{
 
 
           <div className="post__footer">
-            <div className="post__footer_option">
+            <div className="post__footer_option" onClick={()=>handleLikeClick(item._id)} style={{ color: likedPosts[item._id] ? 'blue':'black' }} >
               <ThumbUpIcon />
               <span>Like</span>
               {/* <div className="countLike">

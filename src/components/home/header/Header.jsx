@@ -1,4 +1,6 @@
-import React from 'react';
+// Header.jsx
+
+import React, { useState } from 'react';
 // import '../css/header.css';
 import './Header.css';
 import SearchIcon from '@mui/icons-material/Search';
@@ -11,7 +13,8 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import Avatar from '@mui/material/Avatar';
 
 
-function Header({setUser}) {
+function Header({setUser, user}) {
+  const [loginData, setLoginData] = useState(false);
   return (
     <div className="header">
         <div className='header__left'>
@@ -30,7 +33,8 @@ function Header({setUser}) {
              <Headeroptions Icon={BusinessCenterIcon} title="Jobs" setUser={setUser}/>
              <Headeroptions Icon={MessageIcon} title="Messaging" setUser={setUser}/>
              <Headeroptions Icon={NotificationsIcon} title="Notification" setUser={setUser}/>
-             <Headeroptions avatar={Avatar} title="Abhishek Banjare" isProfileOption={true} setUser={setUser}/>
+             <Headeroptions avatar={Avatar} title={user.data.name} isProfileOption={true} setUser={setUser}/>
+             {/* {console.log("heyyy ....: "+user.data.name)} */}
         </div>
     </div>
   )

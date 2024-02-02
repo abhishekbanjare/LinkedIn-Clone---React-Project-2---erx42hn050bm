@@ -17,9 +17,9 @@ const Home = ()=> {
         :
         (
         <div className='app_wrapper'>
-          <Header setUser={setUser}/>
+          <Header setUser={setUser} user={user}/>
           <div className="app_body">
-              <Sidebar />
+              <Sidebar user={user} setUser={setUser} />
               <Feed />
               <Widget />
           </div>

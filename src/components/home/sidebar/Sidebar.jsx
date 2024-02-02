@@ -1,18 +1,22 @@
-// Abhishek bhaiya
+// Sidebar.jsx
+
 import React from 'react';
 // import '../css/Sidebar.css';
 import './Sidebar.css';
 import { Avatar } from '@mui/material';
 
-function Sidebar() {
+function Sidebar({user}) {
+  console.log(user.data.name);
   return (
     <div className='sidebar'>
         <div className='sidebar__profile'>
             <img src="https://marketplace.canva.com/EAENvp21inc/1/0/1600w/canva-simple-work-linkedin-banner-qt_TMRJF4m0.jpg" />
             <div className='profile__details'>
                 <Avatar />
-                <h4>Abhishek Banjare</h4>
-                <p> Web Developer</p>
+                {/* <h4>Abhishek Banjare</h4> */}
+                {/* <p> Web Developer</p> */}
+                <h4>{user.data.name}</h4>
+                <p>{user.data.email}</p>
             </div>
             <div className='profile__stats'>
               <span>Who viewed your profile</span>

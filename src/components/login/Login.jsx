@@ -26,7 +26,10 @@ function Login({user, setUser}){
         const result = await response.json();
         if(result.status === "success"){
           // alert("You are successfully Login");
-          setUser(true);
+          // console.log("hello abhishek:"+result.data.name);
+          // setUser(true);
+          setUser(result);
+          
         }
         else{
           var errorMessage = document.getElementById("error-message");
