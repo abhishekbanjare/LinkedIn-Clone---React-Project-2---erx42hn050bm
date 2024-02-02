@@ -6,7 +6,6 @@ import Header from './header/Header'
 import Login from '../login/Login';
 import { useState } from 'react';
 
-
 const Home = ()=> {
      const [user, setUser] = useState(false);
 
