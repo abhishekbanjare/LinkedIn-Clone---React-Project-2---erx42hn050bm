@@ -3,27 +3,15 @@
 import React from 'react';
 import './Sidebar.css';
 import { Avatar } from '@mui/material';
-import { useState } from 'react';
-import Userpost from "../userpost/Userpost";
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-// import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 
 function Sidebar({user}) {
-
- const [isProfile, setIsProfile]=useState(false);
-
- const handleClickProfileSection=()=>{
-      setIsProfile(!isProfile);
-
- }
-
   return (
     <>
     
     <div className='sidebar'>
         <div className='sidebar__profile'>
             <img src="https://marketplace.canva.com/EAENvp21inc/1/0/1600w/canva-simple-work-linkedin-banner-qt_TMRJF4m0.jpg" />
-            <div className='profile__details' onClick={handleClickProfileSection}>
+            <div className='profile__details'>
                 <Avatar />
                 {/* <h4>Abhishek Banjare</h4> */}
                 {/* <p> Web Developer</p> */}
@@ -51,12 +39,7 @@ function Sidebar({user}) {
           <p className='has'><span>#</span> reduxtoolkit</p>
         </div>
         
-    </div>
-    {isProfile && (
-        <Link to="/userpost" className='profile__link'>
-          <Userpost />
-        </Link>
-      )}
+    </div>   
     </>
   )
 }

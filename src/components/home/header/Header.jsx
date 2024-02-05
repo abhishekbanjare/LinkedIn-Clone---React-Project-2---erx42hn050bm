@@ -33,7 +33,7 @@ function Header({setUser, user}) {
              <Headeroptions Icon={BusinessCenterIcon} title="Jobs" setUser={setUser}/>
              <Headeroptions Icon={MessageIcon} title="Messaging" setUser={setUser}/>
              <Headeroptions Icon={NotificationsIcon} title="Notification" setUser={setUser}/>
-             <Headeroptions avatar={Avatar} title={user.data.name} isProfileOption={true} setUser={setUser}/>
+             <Headeroptions avatar={Avatar} title={user.data.name} isProfileOption={true} user={user} setUser={setUser}/>
              {/* {console.log("heyyy ....: "+user.data.name)} */}
         </div>
     </div>

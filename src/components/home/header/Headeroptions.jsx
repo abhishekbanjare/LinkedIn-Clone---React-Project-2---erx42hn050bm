@@ -5,7 +5,7 @@ import { useState } from 'react';
 import ProfileDropdown from '../profile/ProfileDropdown';
 
 
-function Headeroptions({Icon, title, avatar, isProfileOption, setUser}) {
+function Headeroptions({Icon, title, avatar, isProfileOption, user, setUser}) {
     const [showDropdown, setShowDropdown] = useState(false);
 
     const handleClick = () => {
@@ -32,7 +32,7 @@ function Headeroptions({Icon, title, avatar, isProfileOption, setUser}) {
         {/* {showDropdown && isProfileOption && <ProfileDropdown />} */}
     </div>
 
-      {showDropdown && isProfileOption && <ProfileDropdown setUser={setUser}/>}
+      {showDropdown && isProfileOption && <ProfileDropdown user={user} setUser={setUser}/>}
     
 
     {/* // ......................... */}
