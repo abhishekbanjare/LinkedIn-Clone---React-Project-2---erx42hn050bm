@@ -2,10 +2,10 @@ import React from 'react'
 import Avatar from '@mui/material/Avatar';
 import './Header.css';
 import { useState } from 'react';
-import ProfileDropdown from '../profile/ProfileDropdown';
+import ProfileDropdown from '../home/profile/ProfileDropdown';
 
 
-function Headeroptions({Icon, title, avatar, isProfileOption, user, setUser}) {
+function Headeroptions({Icon, title, avatar, isProfileOption}) {
     const [showDropdown, setShowDropdown] = useState(false);
 
     const handleClick = () => {
@@ -29,19 +29,8 @@ function Headeroptions({Icon, title, avatar, isProfileOption, user, setUser}) {
             avatar && <Avatar name={avatar} />
         }
         <span>{title}</span>
-        {/* {showDropdown && isProfileOption && <ProfileDropdown />} */}
+        { showDropdown && isProfileOption && <ProfileDropdown /> }
     </div>
-
-      {showDropdown && isProfileOption && <ProfileDropdown user={user} setUser={setUser}/>}
-    
-
-    {/* // ......................... */}
-    {/* <div className="headerOption" onClick={handleClick}>
-    {Icon && <Icon className="headerOption__icon" />}
-    {avatar && <Avatar className="headerOption__icon" />}
-    <h3 className="headerOption__title">{title}</h3>
-    {showDropdown && isProfileOption && <ProfileDropdown />}
-  </div> */}
   </>
   )
 }

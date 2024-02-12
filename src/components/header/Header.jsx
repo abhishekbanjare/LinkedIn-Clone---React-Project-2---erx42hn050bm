@@ -11,10 +11,17 @@ import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
 import MessageIcon from '@mui/icons-material/Message';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import Avatar from '@mui/material/Avatar';
+import {Link, NavLink} from 'react-router-dom';
+import { useContext } from 'react';
+import { LoginContext } from '../../context/Login';
 
 
-function Header({setUser, user}) {
+function Header({user, setUser}) {
+  const loginObj = useContext(LoginContext)  //context api
+
   const [loginData, setLoginData] = useState(false);
+
+
   return (
     <div className="header">
         <div className='header__left'>
@@ -28,13 +35,14 @@ function Header({setUser, user}) {
 
         </div>
         <div className='header__right'>
-             <Headeroptions Icon={HomeIcon} title="Home" setUser={setUser}/>
-             <Headeroptions Icon={PeopleIcon} title="My Network" setUser={setUser}/>
-             <Headeroptions Icon={BusinessCenterIcon} title="Jobs" setUser={setUser}/>
-             <Headeroptions Icon={MessageIcon} title="Messaging" setUser={setUser}/>
-             <Headeroptions Icon={NotificationsIcon} title="Notification" setUser={setUser}/>
-             <Headeroptions avatar={Avatar} title={user.data.name} isProfileOption={true} user={user} setUser={setUser}/>
-             {/* {console.log("heyyy ....: "+user.data.name)} */}
+          <NavLink to="" ><Headeroptions Icon={HomeIcon} title="Home" /></NavLink>
+          <NavLink to="mynetwork" ><Headeroptions Icon={PeopleIcon} title="My Network" /></NavLink>
+          <NavLink to="job" ><Headeroptions Icon={BusinessCenterIcon} title="Jobs" /></NavLink>
+          <NavLink to="messaaging" ><Headeroptions Icon={MessageIcon} title="Messaging" /></NavLink>
+          <NavLink to="notification" ><Headeroptions Icon={NotificationsIcon} title="Notification" /></NavLink>
+            <Headeroptions avatar={Avatar} title={loginObj.user.name} isProfileOption={true} />
+            {/* <Headeroptions avatar={Avatar} title="Abhishek Bhaiya" isProfileOption={true}/> */}
+             {/* {console.log("heyyy ....: "+user.name)} */}
         </div>
     </div>
   )

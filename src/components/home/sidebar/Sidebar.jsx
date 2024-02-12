@@ -3,21 +3,29 @@
 import React from 'react';
 import './Sidebar.css';
 import { Avatar } from '@mui/material';
+import {Link, NavLink} from 'react-router-dom';
+import { useContext } from 'react';
+import { LoginContext } from '../../../context/Login';
 
-function Sidebar({user}) {
+function Sidebar() {
+
+  const loginObj = useContext(LoginContext)  //context api
+
   return (
     <>
-    
     <div className='sidebar'>
         <div className='sidebar__profile'>
             <img src="https://marketplace.canva.com/EAENvp21inc/1/0/1600w/canva-simple-work-linkedin-banner-qt_TMRJF4m0.jpg" />
+          
             <div className='profile__details'>
-                <Avatar />
-                {/* <h4>Abhishek Banjare</h4> */}
-                {/* <p> Web Developer</p> */}
-                <h4>{user.data.name}</h4>
-                <p>{user.data.email}</p>
+               <Link to="userpost"> <Avatar /> </Link>
+                <h4>{loginObj.user.name}</h4>
+                {/* <h4>Abhishek Bhaiya</h4> */}
+                <p>{loginObj.user.email}</p>
+                {/* <p>suryaabhishek329@gmail.com</p> */}
             </div>
+            
+
             <div className='profile__stats'>
               <span>Who viewed your profile</span>
               <span className='stat__number'>20</span>

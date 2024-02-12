@@ -8,11 +8,15 @@ import AssignmentIcon from '@mui/icons-material/Assignment';
 import Post from './Post';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import PostCard from '../postcard/PostCard';
 // .................................
 
 function Feed() {
    
       const [apiData, setApiData] = useState([]);
+
+      const [isFullScreen, setIsFullScreen] = useState(false);
+      // const [isProfileOption, setIsProfileOption] = useState(true);
     
       let ApiUrl = "https://academics.newtonschool.co/api/v1/linkedin/post";
     
@@ -35,16 +39,33 @@ function Feed() {
       useEffect(() => {
         fetchApiData(ApiUrl);
       }, []);
-    
+    // ...................
+    const openPostCard = () => {
+      if(!isFullScreen){
+        setIsFullScreen(!isFullScreen);
+      }
+      
+    // Add logic for other options if needed
+    }
+    // const handleCreatePost = () => {
+    //   setShowDropdown(false);
+    // };
 
   return (
     <div className='feed'>
+      {isFullScreen && (
+        <div className='dropdown'>
+          <PostCard setIsFullScreen={setIsFullScreen}/>
+        </div>
+      )}
       <div className='feed__input'>
          <div className='feed__form'> 
             <Avatar src='https://www.hindustantimes.com/static-content/1y/cricket-logos/players/virat-kohli.png' />
-            <form>
+            <form onClick={openPostCard}>
+               
                <input type="text" placeholder='Start a post'/>
                <input type="submit" />
+               
             </form>
             
          </div>
@@ -68,8 +89,13 @@ function Feed() {
                 <span>Write Article</span>
              </div>
          </div>
+         
       </div>
        {apiData.length > 0 && <Post data={apiData} />}
+
+       
+       
+      
    </div>
     
     

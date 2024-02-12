@@ -2,8 +2,12 @@ import React from 'react';
 import "./Login.css"
 import { useState } from 'react';
 import Signup from './Signup';
+import { useContext } from 'react';
+import { LoginContext } from '../../context/Login';
 
-function Login({user, setUser}){
+function Login(){
+  const loginObj = useContext(LoginContext)  //context api
+
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [signUp, setSignUp] = useState(true);  //signup ho chuka hai to hame login page open karna hai
@@ -28,7 +32,7 @@ function Login({user, setUser}){
           // alert("You are successfully Login");
           // console.log("hello abhishek:"+result.data.name);
           // setUser(true);
-          setUser(result);
+          loginObj.setUser(result.data);
           
         }
         else{
@@ -47,7 +51,7 @@ function Login({user, setUser}){
       <div className='loginScreen'>     
       {
           signUp===false ? (
-                <Signup user={user} setUser={setUser}/> 
+                <Signup /> 
           )
           :
           ( 

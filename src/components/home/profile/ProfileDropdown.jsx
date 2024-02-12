@@ -1,20 +1,24 @@
 import React from 'react';
-import "./ProfileDropdown.css";
+import "../profile/ProfileDropdown.css";
 import Avatar from '@mui/material/Avatar';
-import Headeroptions from '../header/Headeroptions';
+import Headeroptions from '../../header/Headeroptions';
+import { useContext } from 'react';
+import { LoginContext } from '../../../context/Login';
 
-const ProfileDropdown = ({user, setUser}) => {
+const ProfileDropdown = () => {
+    const loginObj = useContext(LoginContext)  // login context api
+
     const handleSignOut = () => {
         // Add logic for signing out
         console.log('Signing out...');
         alert("Sign Out");
-        setUser(false);
+        loginObj.setUser(false);
       };
-    console.log("Hello aabhishek: "+user.data.name)
+    // console.log("Hello aabhishek: "+user.data.name)
       return (
         <div className="profileDropdown">
           {/* <Headeroptions avatar={Avatar} title="Abhishek Banjare" /> */}
-          <Headeroptions avatar={Avatar} title={user.data.name} />
+          <Headeroptions avatar={Avatar} title={loginObj.user.name} />
           <div className='prof_acount'>
             <h4>Acount</h4> 
               <p>Setting & Privacy</p>

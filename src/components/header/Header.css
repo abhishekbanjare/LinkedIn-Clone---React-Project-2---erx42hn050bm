@@ -37,6 +37,10 @@
     display:flex;
     align-items:center;
 }
+.header__right a{
+    text-decoration: none;
+}
+
 /* ............. */
 .header__options{
     display:flex;
@@ -47,13 +51,14 @@
     color:#565656;
     position: relative;
     cursor:pointer;
+    
 }
 .header__options:first-child::before{
     content: '';
     position:absolute;
     left: -10px;
     right: -10px;
-    background-color: #333;
+    /* background-color: #333; */
     height: 1px;
     bottom:-7px;
 }

@@ -2,8 +2,13 @@ import React from 'react';
 import "./Login.css";
 import Login from './Login';
 import { useState } from 'react';
+import { useContext } from 'react';
+import { LoginContext } from '../../context/Login';
 
-function Signup({user, setUser}) {
+function Signup() {
+    
+    const loginObj = useContext(LoginContext)  //context api
+
     const [name, setName] = useState("");
     const [photoURL, setPhotoURL] = useState("");
     const [email, setEmail] = useState("");
@@ -50,7 +55,7 @@ function Signup({user, setUser}) {
         });
         const result = await response.json();
         if(result.status === "success"){
-            setUser(true);
+            loginObj.setUser(result.data.user);
             // console.log("You are successfully Registered");
             alert("You are successfully Registered");
         }
@@ -84,7 +89,7 @@ function Signup({user, setUser}) {
         </div>
        
         ):(
-            <Login user={user} setUser={setUser}/>
+            <Login />
         )
     }
      </div>
