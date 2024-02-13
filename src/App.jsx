@@ -14,7 +14,7 @@ function App() {
   const loginObj = useContext(LoginContext)  //login context api
 
   return (
-    <>
+    <div className='blur'>
     {/* context API */}
       {loginObj.user ? (
         <div>
@@ -29,7 +29,7 @@ function App() {
         <Login />
         // <Login user={user} setUser={setUser} />
       )}
-    </>
+    </div>
   )
 }
 

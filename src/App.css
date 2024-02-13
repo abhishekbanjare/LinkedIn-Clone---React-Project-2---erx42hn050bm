@@ -1,11 +1,17 @@
-/* body{
+body{
     margin:0;
     padding:0;
-    background-color: #f3f2ef;
-  }
+    /* background-color: #f3f2ef; */
+     background-color: aqua;
+ }
+ /*
 .app_body{
     width: 70%;
     padding: 0px 15%;
     display:flex;
     
 } */
+.blur{
+  /* filter:blur(1px); */
+  /* background-color: aqua; */
+}

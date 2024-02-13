@@ -67,3 +67,11 @@
 .feed .feed__options #option_4{
     color:#fc9295;
 }
+/* ................................ */
+
+.overflow-hidden {
+    overflow: hidden;
+    /* background-color: #cf5353; */
+    /* filter:blur(1px); */
+    /* overflow-y:auto   */
+}
