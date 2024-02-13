@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 // import "../profile/ProfileDropdown.css";
 import './PostCard.css';
 import Avatar from '@mui/material/Avatar';
@@ -14,11 +14,18 @@ import { LoginContext } from '../../../context/Login';
 
 
 const PostCard = ({setIsFullScreen}) => {
+    const [selectedFile, setSelectedFile] = useState(null);
 
     const loginObj = useContext(LoginContext)
 
       const closePostCard=()=>{
         setIsFullScreen(false)
+      }
+
+      const handleFileChange = (event) =>{
+            const file = event.target.files[0];
+            console.log(file);
+            setSelectedFile(file);
       }
     
       return (
@@ -41,7 +48,8 @@ const PostCard = ({setIsFullScreen}) => {
           </div>
 
           <div className='sec-3'>
-            <PermMediaIcon />
+            <label htmlFor="fileInput"><PermMediaIcon /></label>
+            <input type="file" id="fileInput" style={{display: 'none'}} onChange={handleFileChange} />
             <EventAvailableIcon />
             <CelebrationIcon />
             <MoreHorizIcon />
