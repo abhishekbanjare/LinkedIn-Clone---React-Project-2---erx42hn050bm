@@ -14,7 +14,7 @@ import { LoginContext } from '../../../context/Login';
 
 
 const PostCard = ({setIsFullScreen}) => {
-    // const [selectedFile, setSelectedFile] = useState(null);
+    const [selectedFile, setSelectedFile] = useState(null);
 
     const loginObj = useContext(LoginContext)
 
@@ -22,11 +22,11 @@ const PostCard = ({setIsFullScreen}) => {
         setIsFullScreen(false)
       }
 
-      // const handleFileChange = (event) =>{
-      //       const file = event.target.files[0];
-      //       console.log(file);
-      //       setSelectedFile(file);
-      // }
+      const handleFileChange = (event) =>{
+            const file = event.target.files[0];
+            console.log(file);
+            setSelectedFile(file);
+      }
     
       return (
         <div className="post-card">
@@ -48,9 +48,8 @@ const PostCard = ({setIsFullScreen}) => {
           </div>
 
           <div className='sec-3'>
-            <PermMediaIcon />
-            {/* <label htmlFor="fileInput"><PermMediaIcon /></label> */}
-            {/* <input type="file" id="fileInput" style={{display: 'none'}} onChange={handleFileChange} /> */}
+            <label htmlFor="fileInput"><PermMediaIcon /></label> 
+            <input type="file" id="fileInput" style={{display: 'none'}} onChange={handleFileChange} />
             <EventAvailableIcon />
             <CelebrationIcon />
             <MoreHorizIcon />
