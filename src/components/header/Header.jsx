@@ -18,8 +18,11 @@ import { LoginContext } from '../../context/Login';
 
 function Header({user, setUser}) {
   const loginObj = useContext(LoginContext)  //context api
+  const [activeOption, setActiveOption] = useState(null);
 
-  const [loginData, setLoginData] = useState(false);
+  const handleOptionClick = (title) => {
+    setActiveOption(title);
+  };
 
 
   return (
@@ -32,14 +35,29 @@ function Header({user, setUser}) {
               <SearchIcon />
               <input type='text' placeholder='Search' />
            </div>
-
         </div>
+        
         <div className='header__right'>
-          <NavLink to="" ><Headeroptions Icon={HomeIcon} title="Home" /></NavLink>
-          <NavLink to="mynetwork" ><Headeroptions Icon={PeopleIcon} title="My Network" /></NavLink>
-          <NavLink to="job" ><Headeroptions Icon={BusinessCenterIcon} title="Jobs" /></NavLink>
-          <NavLink to="messaaging" ><Headeroptions Icon={MessageIcon} title="Messaging" /></NavLink>
-          <NavLink to="notification" ><Headeroptions Icon={NotificationsIcon} title="Notification" /></NavLink>
+          <NavLink to="" onClick={() => handleOptionClick("Home")} >
+             <Headeroptions Icon={HomeIcon} title="Home" active={activeOption === "Home"} />
+          </NavLink>
+
+          <NavLink to="mynetwork" onClick={() => handleOptionClick("My Network")}>
+             <Headeroptions Icon={PeopleIcon} title="My Network" active={activeOption === "My Network"}  />
+          </NavLink>
+
+          <NavLink to="job" onClick={() => handleOptionClick("Jobs")} >
+            <Headeroptions Icon={BusinessCenterIcon} title="Jobs" active={activeOption === "Jobs"}  />
+          </NavLink>
+
+          <NavLink to="messaaging" onClick={() => handleOptionClick("Messaging")} >
+            <Headeroptions Icon={MessageIcon} title="Messaging" active={activeOption === "Messaging"}  />
+          </NavLink>
+
+          <NavLink to="notification" onClick={() => handleOptionClick("Notification")} >
+            <Headeroptions Icon={NotificationsIcon} title="Notification" active={activeOption === "Notification"}  />
+          </NavLink>
+
             <Headeroptions avatar={Avatar} title={loginObj.user.name} isProfileOption={true} />
             {/* <Headeroptions avatar={Avatar} title="Abhishek Bhaiya" isProfileOption={true}/> */}
              {/* {console.log("heyyy ....: "+user.name)} */}

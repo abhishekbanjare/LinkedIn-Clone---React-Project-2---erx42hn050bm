@@ -49,9 +49,19 @@
     margin: 0px 15px;
     font-size: 14px;
     color:#565656;
+    /* color:#e93a04; */
     position: relative;
     cursor:pointer;
     
+}
+.header__options--active{
+    border-bottom: 1px solid black;
+    /* width: fit-content; */
+}
+.header__options--prev-active{
+    border-bottom: 1px solid black;
+    /* width: fit-content; */
+
 }
 .header__options:first-child::before{
     content: '';

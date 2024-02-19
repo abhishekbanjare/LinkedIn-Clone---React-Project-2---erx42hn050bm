@@ -1,0 +1,67 @@
+.main-wraper{
+    display:flex;
+    margin-top:12px;
+    margin-bottom:20px;
+}
+.main-wraper .MuiAvatar-circular{
+    /* margin-left: 20px; */
+    width: 30px;
+    height: 30px;
+
+}
+.user-comment-body{
+    background-color:rgba(243, 234, 234, 0.808);
+    display:flex;
+    flex-direction:column;
+    margin-left:7px;
+    margin-right: 15px;
+    border-radius: 2px;
+}
+.user-comment-body .com-header{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding-left: 12px;
+   padding-right: 12px;
+   margin-top: 12px;
+
+
+}
+
+.user-comment-body .com-header .header-left h3{
+    margin:0px;
+    font-size: 15px;
+    text-align: left;
+}
+.user-comment-body .com-header .header-left p{
+    margin:0px;
+    font-size:13px;
+    text-align: left;
+}
+
+.comment-body{
+    font-size:14px;
+    padding:0 8px 0 8px;
+    text-align: left;
+    /* margin-top: 10px; */
+}
+
+/* comment menu.............. */
+/* .custom-menu {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    color: #333;
+    font-family: 'Arial', sans-serif;
+    margin-top: 5px;
+    border:1px solid red;
+
+    border-radius: 4;
+    box-shadow: '0 2px 6px rgba(0, 0, 0, 0.1)';
+}
+.custom-menu .custom-menu-item {
+    padding: 10px;
+    margin:0;
+    font-size: 14px;
+    color: #555;
+  } */

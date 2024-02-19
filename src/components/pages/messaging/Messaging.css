@@ -1,0 +1,7 @@
+.main-messaging{
+    background-image: url("/src/components/pages/messaging/Messaging.PNG");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 545px;
+}

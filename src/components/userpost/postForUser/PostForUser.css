@@ -1,0 +1,94 @@
+.user-post-body{
+   /* border-radius: 30px; */
+}
+.user-posts{
+    border-radius: 10px;
+
+    background-color:#fff;
+    padding:10px;
+}
+.user-posts .post__header{
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+}
+.user-posts .post__header .post__headerLeft{
+    display:flex;
+    align-items:center;
+}
+.user-posts .post__header .post__headerLeft .post_profile_details h3{
+    font-size: 14px;
+    margin:0px;
+    margin-left:10px; 
+}
+.user-posts .post__header .post__headerLeft .post_profile_details p{
+    font-size: 12px;
+    margin:0px;
+    margin-left:10px;
+}
+.post__body p{
+    font-size: 14px;
+    padding: 20px 0px;
+}
+.post__footer{
+    display:flex;
+    justify-content:space-between;
+    border-top:1px solid #ccc;
+    padding-top: 5px;
+    margin-top:0px;
+}
+.post__footer .post__footer_option{
+    display:flex;
+    align-items:center;
+    cursor: pointer;
+    margin-right:20px;
+    margin-left:20px;
+}
+.post__footer .post__footer_option svg{
+    margin-right:10px;
+    /* color:rgb(90, 90, 90); */
+}
+.post__footer .post__footer_option span{
+    /* color:rgb(90, 90, 90); */
+    font-size: 14px;
+}
+
+ /* .post__footer .post__footer_option .countLike{
+    border-radius:52%;
+     margin-left:3px;
+     font-weight: bold;
+} */
+.countLikeComment{
+    /* background-color: yellow; */
+    display:flex;
+    justify-content:space-between;
+    /* font-weight:100; */
+    font-size:small;
+    color:#3d3030; 
+}
+
+/* input section.......................... */
+.comment-show .input-sec{
+    display: flex;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    margin-right: 15px;
+    
+}
+.comment-show .comment-input{
+    padding: 0px 10px 0px 10px;
+    margin-left: 7px;
+    border: 2px solid #ccc;
+    border-radius: 30px;
+    width: 100%;
+    /* box-sizing:content-box; */
+    font-size: 14px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    /* font-weight: bold; */
+}
+
+.comment-show .MuiAvatar-circular{
+    /* margin-right: 15px; */
+    width: 30px;
+    height: 30px;
+}

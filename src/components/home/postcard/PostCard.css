@@ -50,7 +50,7 @@
     flex-direction: column ;
 }
 
-.sec-2 input{
+.sec-2 > *{
     margin-bottom: 8px;
     padding:8px;
     /* border: 1px solid #ccc; */
@@ -59,24 +59,33 @@
     outline: none;
     background-color: #f0f0f0;
     font-size:medium;
-    /* font-weight: bold; */
-}
-.sec-2 input:first-child{
     font-weight: bold;
+}
+.sec-2 input{
+    /* font-weight: bold; */
 
 }
-.sec-2 input:nth-child(2){
+.sec-2 textarea{
+    resize: none;
 
 }
 .sec-3{
     position:absolute;
     display: flex;
-    bottom: 80px;
+    bottom: 60px;
     /* border:1px solid red; */
 }
 .sec-3 > * {
    margin-right: 30px;
    color: #5a4f4f;
+   cursor: pointer;
+}
+.sec-3 label{
+    cursor: pointer;
+}
+.sec-3 p{
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .sec-4{

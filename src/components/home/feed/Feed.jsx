@@ -47,22 +47,6 @@ function Feed() {
       
     // Add logic for other options if needed
     }
-    // const handleCreatePost = () => {
-    //   setShowDropdown(false);
-    // };
-
-    useEffect(() => {
-      // Toggle body class when PostCard is open
-      document.body.classList.toggle('overflow-hidden', isFullScreen);
-      document.body.classList.toggle('blur-background', isFullScreen);
-  
-      // Cleanup when component unmounts
-      return () => {
-        document.body.classList.remove('overflow-hidden');
-        document.body.classList.remove('blur-background');
-      };
-    }, [isFullScreen]);
-
 
   return (
     <div className="feed">

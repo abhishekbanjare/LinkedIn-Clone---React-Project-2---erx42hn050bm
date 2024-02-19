@@ -1,9 +1,15 @@
 import React from 'react'
+import './Userpost.css'
+import SidebarForUser from './sidebarForUser/SidebarForUser'
+import PostForUser from './postForUser/PostForUser'
 
 const Userpost = () => {
   return (
-    <div>
-        <h1>This Is Userpost Component</h1>
+    <div className='post-wraper'>
+      <div className='post-body'>
+          <SidebarForUser />
+          <PostForUser />
+      </div>
     </div>
   )
 }

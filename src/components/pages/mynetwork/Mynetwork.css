@@ -1,0 +1,8 @@
+.main{
+    
+    background-image: url("/src/components/pages/mynetwork/mynetwork.PNG");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 545px;
+}

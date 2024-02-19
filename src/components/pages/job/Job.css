@@ -1,0 +1,7 @@
+.main-job{
+    background-image: url("/src/components/pages/job/Job.PNG");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 545px;
+}

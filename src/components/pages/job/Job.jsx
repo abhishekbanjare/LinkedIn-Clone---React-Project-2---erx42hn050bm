@@ -1,9 +1,10 @@
 import React from 'react'
+import './Job.css'
 
 const Job = () => {
   return (
-    <div>
-        <h1>This Is Job Components</h1>
+    <div className='main-job'>
+        {/* <h1>This Is Job Components</h1> */}
     </div>
   )
 }

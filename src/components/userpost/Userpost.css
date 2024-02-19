@@ -1,0 +1,14 @@
+.body{
+    margin: 0;
+    padding: 0;
+    background-color: #f3f2ef;
+}
+
+.post-wraper{
+   width: 100%;
+}
+.post-body{
+    display: flex;
+    padding-left: 15%;
+    padding-right: 30%;
+}

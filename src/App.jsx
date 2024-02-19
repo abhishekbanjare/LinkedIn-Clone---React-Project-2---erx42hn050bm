@@ -18,16 +18,11 @@ function App() {
     {/* context API */}
       {loginObj.user ? (
         <div>
-          {/* <Header user={user} setUser={setUser} /> */}
-          <Header />
-          <Outlet/>
-              {/* <Sidebar user={user} setUser={setUser} />
-          </Outlet> */}
-          
+           <Header />
+           <Outlet/> 
         </div>
       ) : (
         <Login />
-        // <Login user={user} setUser={setUser} />
       )}
     </div>
   )
