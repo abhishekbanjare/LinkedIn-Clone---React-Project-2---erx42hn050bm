@@ -26,9 +26,14 @@
     margin:0px;
     margin-left:10px;
 }
+.post__body h3{
+    /* border:1px solid red; */
+    margin-bottom:0;
+}
 .post__body p{
-    font-size: 14px;
-    padding: 20px 0px;
+    font-size: 15px;
+    padding: 5px 0px;
+    /* border:1px solid red; */
 }
 .post__footer{
     display:flex;

@@ -58,7 +58,7 @@ function Header({user, setUser}) {
             <Headeroptions Icon={NotificationsIcon} title="Notification" active={activeOption === "Notification"}  />
           </NavLink>
 
-            <Headeroptions avatar={Avatar} title={loginObj.user.name} isProfileOption={true} />
+            <Headeroptions avatar={Avatar} title={loginObj.user.data.name} isProfileOption={true} />
             {/* <Headeroptions avatar={Avatar} title="Abhishek Bhaiya" isProfileOption={true}/> */}
              {/* {console.log("heyyy ....: "+user.name)} */}
         </div>

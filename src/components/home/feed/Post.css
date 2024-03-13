@@ -1,9 +1,19 @@
 .posts{
-    background-color:#fff;
+    /* background-color:#fff;
     padding:10px;
     margin-top:10px;
+    border-radius: 10px; */
+
+    background-color: #ffffff;
+    padding: 5px 10px 5px; /* Adjust padding as needed */
+    margin-top: 6px; /* Adjust margin as needed */
     border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */ 
 }
+.posts:hover {
+    /* box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.2);     Add a slightly larger box shadow on hover */
+  }
+  
 .posts .post__header{
     display: flex;
     align-items: center;
@@ -27,6 +37,13 @@
     font-size: 14px;
     padding: 20px 0px;
 }
+.post__body img{
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 10px;
+}
+/* post footer............... */
 .post__footer{
     display:flex;
     justify-content:space-between;
@@ -40,6 +57,9 @@
     cursor: pointer;
     margin-right:20px;
     margin-left:20px;
+    /* padding: 3px; */
+    padding: 3px 5px 3px;
+    border-radius: 3px;
 }
 .post__footer .post__footer_option svg{
     margin-right:10px;
@@ -63,4 +83,43 @@
     font-size:small;
     color:#3d3030; 
 }
+.post__footer .post__footer_option:hover {
+    background-color:#eee;
+}
 
+/* input section.......................... */
+.commentShow .input-sec{
+    display: flex;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    margin-right: 15px;
+    
+}
+.commentShow .comment-input{
+    padding: 0px 10px 0px 10px;
+    margin-left: 7px;
+    border: 2px solid #ccc;
+    border-radius: 30px;
+    width: 100%;
+    /* box-sizing:content-box; */
+    font-size: 14px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    /* font-weight: bold; */
+}
+
+.commentShow .MuiAvatar-circular{
+    /* margin-right: 15px; */
+    width: 30px;
+    height: 30px;
+}
+
+
+.options-container-post .editPost, .deletePost{
+    padding: 10px 17px;
+    cursor: pointer;
+    font-size:large;
+}
+.options-container-post .editPost:hover, .deletePost:hover{
+    background-color:#e4e2e2;
+    font-weight:bold;
+}

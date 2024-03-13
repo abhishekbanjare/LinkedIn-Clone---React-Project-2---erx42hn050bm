@@ -15,8 +15,8 @@ const SidebarForUser = () => {
 
         <div className='profile__details'>
           <Avatar />
-          <h4>{loginObj.user.name}</h4>
-          <p>{loginObj.user.email}</p>
+          <h4>{loginObj.user.data.name}</h4>
+          <p>{loginObj.user.data.email}</p>
         </div>
 
         <div className='profile__stats'>

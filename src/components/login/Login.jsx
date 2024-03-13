@@ -32,7 +32,8 @@ function Login(){
           // alert("You are successfully Login");
           // console.log("hello abhishek:"+result.data.name);
           // setUser(true);
-          loginObj.setUser(result.data);
+          loginObj.setUser(result);
+          // loginObj.setUser(result.data);
           
         }
         else{

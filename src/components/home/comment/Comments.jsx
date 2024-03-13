@@ -145,7 +145,7 @@ function Comments(props){
 
                   </div>
                   <div className="comment_body">
-                          <p>Tendulkar was born at Nirmal Nursing Home in Dadar, Bombay on 24 April 1973 to a Maharastrian family. His father, Ramesh Tendulkar, was a Marathi-language novelist and poet while his mother, Rajni, worked in the insurance industry. Tendulkar's father named him after his favourite music director, Sachin Dev Burman.</p>
+                          <p>Tendulkar was born at Nirmal Nursing Home in Dadar, Bombay on 24 April 1973 to a Maharastrian family. His father, Ramesh Tendulkar..</p>
                           <p>{dataObj.content}</p>
                   </div>
               </div>

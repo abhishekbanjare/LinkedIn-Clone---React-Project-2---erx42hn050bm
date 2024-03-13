@@ -18,7 +18,7 @@ const ProfileDropdown = () => {
       return (
         <div className="profileDropdown">
           {/* <Headeroptions avatar={Avatar} title="Abhishek Banjare" /> */}
-          <Headeroptions avatar={Avatar} title={loginObj.user.name} />
+          <Headeroptions avatar={Avatar} title={loginObj.user.data.name} />
           <div className='prof_acount'>
             <h4>Acount</h4> 
               <p>Setting & Privacy</p>

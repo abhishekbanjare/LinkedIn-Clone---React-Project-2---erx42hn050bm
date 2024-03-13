@@ -9,11 +9,16 @@ import Post from './Post';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import PostCard from '../postcard/PostCard';
+
+import { useContext } from 'react';
+import { PostContext } from '../../../context/PostCont';
 // .................................
 
 function Feed() {
+  const postObj = useContext(PostContext)  //context api
+
    
-      const [apiData, setApiData] = useState([]);
+      // const [apiData, setApiData] = useState([]);
 
       const [isFullScreen, setIsFullScreen] = useState(false);
       // const [isProfileOption, setIsProfileOption] = useState(true);
@@ -29,9 +34,19 @@ function Feed() {
           });
           const data = await res.json();
           const oneData = data.data;
+          // console.log("hello ji1....... ",data);
+          // console.log("hello ji2....... ",oneData);
+          // ................
+          if(data.status === "success"){
+            postObj.setPost(oneData);            
+          }
+          else{
+            console.log("post api is not working")
+          }
+          // ................
     
           // Store the data in the state variable
-          setApiData(oneData);
+          // setApiData(oneData);
         } catch (error) {
           console.log(error);
         }
@@ -88,7 +103,8 @@ function Feed() {
          </div>
          
       </div>
-       {apiData.length > 0 && <Post data={apiData} />}
+       {postObj.post.length > 0 && <Post data={postObj.post} />}
+       {/* {apiData.length > 0 && <Post data={apiData} />} */}
 
        
        

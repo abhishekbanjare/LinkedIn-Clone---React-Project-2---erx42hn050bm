@@ -19,9 +19,9 @@ function Sidebar() {
           
             <div className='profile__details'>
                <Link to="userpost"> <Avatar /> </Link>
-                <h4>{loginObj.user.name}</h4>
+                <h4>{loginObj.user.data.name}</h4>
                 {/* <h4>Abhishek Bhaiya</h4> */}
-                <p>{loginObj.user.email}</p>
+                <p>{loginObj.user.data.email}</p>
                 {/* <p>suryaabhishek329@gmail.com</p> */}
             </div>
             

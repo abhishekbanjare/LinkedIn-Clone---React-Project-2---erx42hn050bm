@@ -29,17 +29,53 @@ const PostCard = ({setIsFullScreen}) => {
             // console.log(file);
             setSelectedFile(file);
       }
-      const handlePostClick = () =>{
+
+      const handlePostClick = async () =>{
         console.log("title: ", title);
         console.log("content: ", content);
         console.log('fileName: ', selectedFile);
+// ...................................................
+// const formData = {   
+//   "title": title,
+//   "content": content,
+//   "images": selectedFile,
+// };
 
+  const apiUrl = 'https://academics.newtonschool.co/api/v1/linkedin/post/';
+  // const jwtToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1N2ViZTY3MzNlMjViNTQ5NDMyNGQ5ZSIsImlhdCI6MTcwODQyNTM1NywiZXhwIjoxNzM5OTYxMzU3fQ.eoAdl3VHQlDK0v9vTtkou5vNcRgM6Q6mllQQ-CKkUwY';
+  const jwtToken = loginObj.user.token;
+  const projectId = 'erx42hn050bm';
+
+  const formData = new FormData();
+formData.append('title', title);
+formData.append('content', content);
+formData.append('images', selectedFile);
+
+const response = await fetch(apiUrl, {
+  method: 'POST',
+  headers: {
+    'Authorization': `Bearer ${jwtToken}`,
+    'projectID': projectId,
+  },
+  body: formData,
+});
+
+if (response.ok) {
+  const responseData = await response.json();
+  console.log('Post created successfully:', responseData);
+} else {
+  const errorData = await response.json();
+  console.error('Error creating post:', errorData);
+}
+
+
+// ...................................................
         setTitle('');
         setContent('');
         setSelectedFile('');
 
         closePostCard();
-      }
+};
       
       return (
         <div className="post-card">
@@ -48,7 +84,7 @@ const PostCard = ({setIsFullScreen}) => {
           <div className='sec-1'>
               <div className='Aa'>
                 <Avatar></Avatar>
-                <h3>{loginObj.user.name}</h3>
+                <h3>{loginObj.user.data.name}</h3>
                 {/* <h3>Abhishek Banjare</h3> */}
               </div>
               
@@ -87,6 +123,6 @@ const PostCard = ({setIsFullScreen}) => {
           
         </div>
       );
-}
+      }
 
 export default PostCard

@@ -14,8 +14,15 @@ import IconButton from '@mui/material/IconButton';
 import PhotoIcon from '@mui/icons-material/Photo';
 import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
 
+import { useContext } from 'react';
+import { LoginContext } from '../../../context/Login';
+
+
 const PostForUser = () => {
   const [commentOpen, setCommentOpen] = useState(false)
+
+  // const loginObj = useContext(LoginContext)    //use context api
+
 
   const handleComment=()=>{
         setCommentOpen(!commentOpen);
@@ -39,6 +46,7 @@ const PostForUser = () => {
           </div>
 
           <div className="post__body">
+            <h3>This is our title</h3>
             <p>The future of work is digital. From remote work tools to AI-powered productivity solutions, discover the technologies reshaping the modern workplace.</p>
           </div>
            {/* ...... */}

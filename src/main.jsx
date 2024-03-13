@@ -12,6 +12,9 @@ import Notification from './components/pages/notification/Notification.jsx';
 // import Layout from './Layout.jsx';
 import Userpost from './components/userpost/Userpost.jsx';
 import { LoginProvider } from './context/Login.jsx';
+import { PostProvider } from './context/PostCont.jsx';
+
+
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -30,8 +33,10 @@ const router = createBrowserRouter(
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <LoginProvider>
+      <PostProvider>
         {/* <App /> */}
         <RouterProvider router={router} />
+      </PostProvider>
     </LoginProvider>
   </React.StrictMode>,
 )
