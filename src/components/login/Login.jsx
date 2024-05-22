@@ -28,9 +28,10 @@ function Login(){
           }
         });
         const result = await response.json();
+        // console.log("result: "+result)
         if(result.status === "success"){
           // alert("You are successfully Login");
-          // console.log("hello abhishek:"+result.data.name);
+          // console.log("hello abhishek:"+result.data.user.name);
           // setUser(true);
           loginObj.setUser(result);
           // loginObj.setUser(result.data);

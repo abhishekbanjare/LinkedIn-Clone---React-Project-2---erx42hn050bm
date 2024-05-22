@@ -18,7 +18,8 @@ import {Popover} from "@mui/material";
 
 import { useContext } from "react";
 import { PostContext } from "../../../context/PostCont";
-import DeletePost from "../deletePost/DeletePost";
+import { LoginContext } from "../../../context/Login";
+// import DeletePost from "../deletePost/DeletePost";
 
 
 const pStyle = {
@@ -37,7 +38,9 @@ const [stateLikeCounts, setLikeCounts] = useState({});
 const [anchorEl, setAnchorEl] = useState(null);
 
 const postObj = useContext(PostContext)  //context api
+const loginObj = useContext(LoginContext)  // login context api
 
+// console.log("loginContext: ", loginObj.user.token);
 
 
 const handleMoreVertClick = (event) => {
@@ -78,27 +81,27 @@ const handleEditPost = (postId) => {
 };
 
 const handleDeletePost = async (postId) => {
-  // console.log("Abhishek",postId)
+  console.log("Abhishek post Id",postId)
 try {
     // const response = await fetch(`https://academics.newtonschool.co/api/v1/linkedin/post/65e5a602f66fadab324d42da`, {
-    const response = await fetch(`https://academics.newtonschool.co/api/v1/linkedin/post/${postId}`, {
-      method: 'DELETE',
-      headers: {
-        Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1N2ViZTY3MzNlMjViNTQ5NDMyNGQ5ZSIsImlhdCI6MTcwOTY3ODI1NiwiZXhwIjoxNzQxMjE0MjU2fQ.as8pjoeoJTOnwnXdBR5Fh8z2xRh5iK3WVcJIZg6vZOo',
-        projectId: 'erx42hn050bm'
+  //   const response = await fetch(`https://academics.newtonschool.co/api/v1/linkedin/post/${postId}`, {
+  //     method: 'DELETE',
+  //     headers: {
+  //       Authorization: `Bearer ${loginObj.user.token}`,
+  //       projectId: 'erx42hn050bm'
 
-        // Add any additional headers if required (e.g., authorization token)
-      },
-      // You may include a body if needed for the DELETE request
-      body: JSON.stringify({}),
-    });
+  //       // Add any additional headers if required (e.g., authorization token)
+  //     },
+  //     // You may include a body if needed for the DELETE request
+  //     body: JSON.stringify({}),
+  //   });
 
-    if (response.ok) {
-      console.log(`Post with ID ${postId} deleted successfully`);
-      // Implement any additional logic you need after successful deletion
-    } else {
-      console.error(`Failed to delete post with ID ${postId}`);
-    }
+  //   if (response.ok) {
+  //     console.log(`Post with ID ${postId} deleted successfully`);
+  //     // Implement any additional logic you need after successful deletion
+  //   } else {
+  //     console.error(`Failed to delete post with ID ${postId}`);
+  //   }
   } catch (error) {
     console.error('Error deleting post:', error);
   }
@@ -109,6 +112,7 @@ try {
     <div>
       {postObj.post.map((item, index) => (
         <div key={item._id} className="posts">
+        {/* {  console.log("key: ", item._id)} */}
           <div className="post__header">
             <div className="post__headerLeft">
               <Avatar src={item.author.profileImage} />
